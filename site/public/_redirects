@@ -1,0 +1,8 @@
+# Old service URLs from the previous static site -> new routes.
+# (Cloudflare already maps /about.html -> /about etc. automatically.)
+/service-it-strategy.html            /services/it-strategy          301
+/service-cloud-infrastructure.html   /services/cloud-infrastructure 301
+/service-devsecops.html              /services/devsecops            301
+/service-cybersecurity.html          /services/cybersecurity        301
+/service-api-automation.html         /services/api-automation       301
+/service-ai-machine-learning.html    /services/ai-machine-learning  301
