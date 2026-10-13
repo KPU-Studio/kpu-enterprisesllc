@@ -81,8 +81,10 @@ jobs:
       run:
         working-directory: site
     environment:
-      name: ${{ github.event.inputs.environment }}
-      url: ${{ github.event.inputs.environment == 'production' && 'https://qorvynsystems.com' }}
+      # push events don't set inputs, so default to production or the job binds to an empty
+      # environment and can't see production-scoped secrets like CLOUDFLARE_API_TOKEN
+      name: ${{ github.event.inputs.environment || 'production' }}
+      url: ${{ (github.event.inputs.environment || 'production') == 'production' && 'https://qorvynsystems.com' }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
