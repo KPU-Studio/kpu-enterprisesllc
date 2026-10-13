@@ -37,7 +37,7 @@ jobs:
         with:
           node-version: 22
           cache: npm
-          # cache-dependency-path: site/package-lock.json   # if in a subfolder
+          cache-dependency-path: site/package-lock.json   # if in a subfolder
 
       - run: npm ci
       - run: npm run typecheck
