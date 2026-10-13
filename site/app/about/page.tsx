@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/PageHeader";
 import { Photo } from "@/components/Photo";
+import { CertStrip } from "@/components/CertStrip";
 import { CtaBand } from "@/components/CtaBand";
 import { EngagementStatus } from "@/components/EngagementStatus";
 import { audiences, engagement, impact, values } from "@/lib/content";
@@ -43,6 +44,8 @@ export default function AboutPage() {
           <p className="body-copy mt-1">Led by a consultant with 8+ years of professional IT experience.</p>
         </div>
       </section>
+
+      <CertStrip />
 
       <section className="border-y border-rule-gray">
         <div className="frame py-16 md:py-24">

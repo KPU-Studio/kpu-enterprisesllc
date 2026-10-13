@@ -464,3 +464,27 @@ export const contactForm = {
   subject: "New website inquiry — Qorvyn Systems",
   interests: [...services.map((s) => s.title), "Project planning and scoping", "Something else / not sure yet"],
 };
+
+// Default set — edit to the sectors you actually serve. icon maps to ServiceIcon names.
+export const industries = [
+  { name: "Healthcare", icon: "healthcare" },
+  { name: "Finance & Banking", icon: "finance" },
+  { name: "Legal", icon: "legal" },
+  { name: "Professional Services", icon: "professional" },
+  { name: "Manufacturing", icon: "manufacturing" },
+  { name: "Technology & SaaS", icon: "technology" },
+  { name: "Retail & E-commerce", icon: "retail" },
+  { name: "Education", icon: "education" },
+  { name: "Nonprofit", icon: "nonprofit" },
+  { name: "Government & Public Sector", icon: "government" },
+  { name: "Logistics & Supply Chain", icon: "logistics" },
+  { name: "Real Estate", icon: "realestate" },
+];
+
+// Active CompTIA credentials. To use real badges: drop files in public/certs/
+// and set logo, e.g. { name: "CompTIA Security+", logo: "/certs/security-plus.png" }.
+export type Certification = { name: string; logo?: string };
+export const certifications: Certification[] = [
+  { name: "CompTIA Security+", logo: "/certs/security-plus.png" },
+  { name: "CompTIA Linux+", logo: "/certs/linux-plus.png" },
+];

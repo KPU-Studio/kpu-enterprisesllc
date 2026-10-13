@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { RailDiagram } from "@/components/RailDiagram";
+import { IndustriesSection } from "@/components/IndustriesSection";
 import { CtaBand } from "@/components/CtaBand";
 import { EngagementStatus } from "@/components/EngagementStatus";
 import { audiences, engagement, measures, process, services, site } from "@/lib/content";
@@ -54,6 +55,9 @@ export default function Home() {
           ))}
         </ul>
       </section>
+
+      {/* Industries */}
+      <IndustriesSection />
 
       {/* Engagement story */}
       <section className="frame pb-20 md:pb-28">

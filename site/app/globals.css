@@ -99,6 +99,28 @@
   .card-plum { @apply rounded-card bg-plum-ledger text-paper; }
 }
 
+/* Marquee — infinite horizontal scroll (industries, certifications) */
+@keyframes marquee-x { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+.marquee { overflow: hidden; }
+.marquee-track { display: flex; width: max-content; gap: 1rem; animation: marquee-x var(--marquee-duration, 40s) linear infinite; }
+.marquee-track.is-reverse { animation-direction: reverse; }
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track { animation-play-state: paused; }
+.marquee-set { display: flex; gap: 1rem; flex-shrink: 0; }
+.marquee-fade {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
+  /* No motion: show a readable, static wrapped grid instead of a clipped row. */
+  .marquee { overflow: visible; }
+  .marquee-fade { -webkit-mask-image: none; mask-image: none; }
+  .marquee-track { width: 100%; flex-wrap: wrap; }
+  .marquee-track .marquee-set[aria-hidden="true"] { display: none; }
+  .marquee-set { flex-wrap: wrap; }
+  /* Static view: drop the padding repeats, keep only the real items. */
+  .marquee [data-dup] { display: none; }
 }
