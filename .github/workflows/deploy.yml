@@ -81,7 +81,7 @@ jobs:
       run:
         working-directory: site
     environment:
-      # push events don't set inputs, so default to production or the job binds to an empty
+      # push events don't set inputs , so default to production or the job binds to an empty
       # environment and can't see production-scoped secrets like CLOUDFLARE_API_TOKEN
       name: ${{ github.event.inputs.environment || 'production' }}
       url: ${{ (github.event.inputs.environment || 'production') == 'production' && 'https://qorvynsystems.com' }}
