@@ -25,6 +25,16 @@ export type Service = {
   overview: string;
   audience: string;
   scope: string[];
+  // Optional featured offering rendered on the service detail page.
+  feature?: {
+    eyebrow: string;
+    headline: string;
+    intro: string;
+    promise: string;
+    offerings: { title: string; body: string }[];
+    segmentsTitle: string;
+    segments: { title: string; body: string }[];
+  };
 };
 
 export const services: Service[] = [
@@ -63,6 +73,63 @@ export const services: Service[] = [
     audience:
       "Software teams that want a more secure, repeatable delivery process without adding a separate final gate that slows every release.",
     scope: ["Secure CI/CD pipelines", "Automated security testing", "Secrets management", "Policy as Code"],
+    feature: {
+      eyebrow: "Managed GitLab Services",
+      headline: "Your development infrastructure, fully managed.",
+      intro:
+        "Focus on building great software while we take care of your GitLab environment. We provide professional GitLab hosting, administration, DevOps automation, security, and ongoing support for startups, small businesses, development teams, and growing organizations—whether you are setting up GitLab for the first time, migrating from another platform, or need an experienced team to manage existing infrastructure.",
+      promise:
+        "Enterprise-grade DevOps infrastructure without the complexity and cost of maintaining it yourself.",
+      offerings: [
+        {
+          title: "Managed GitLab Hosting",
+          body: "Fully managed GitLab environments hosted in secure cloud or dedicated infrastructure. We handle installation, configuration, maintenance, and day-to-day administration.",
+        },
+        {
+          title: "CI/CD Pipeline Management",
+          body: "Automate your software development lifecycle with professionally configured GitLab CI/CD pipelines, runners, build automation, testing, and deployments.",
+        },
+        {
+          title: "Security & Compliance",
+          body: "Protect your development environment through access controls, secure configurations, vulnerability management, audit support, and security best practices.",
+        },
+        {
+          title: "Backup & Disaster Recovery",
+          body: "Keep your critical development assets protected with automated backups, monitoring, documented recovery procedures, and periodic restore testing.",
+        },
+        {
+          title: "GitLab Migration & Implementation",
+          body: "Move from GitHub, Bitbucket, legacy Git servers, or existing GitLab environments with professional migration planning and minimal disruption.",
+        },
+        {
+          title: "Ongoing Administration & Support",
+          body: "We handle upgrades, user administration, troubleshooting, performance optimization, runner maintenance, and continuous technical assistance.",
+        },
+      ],
+      segmentsTitle: "Built for teams that need reliable DevOps without the overhead.",
+      segments: [
+        {
+          title: "Startups",
+          body: "Launch your development infrastructure quickly without hiring a full-time DevOps engineer.",
+        },
+        {
+          title: "Small & medium businesses",
+          body: "Get a professionally managed GitLab environment with predictable monthly costs.",
+        },
+        {
+          title: "Software development agencies",
+          body: "Manage multiple projects, development teams, and automated delivery pipelines from one reliable platform.",
+        },
+        {
+          title: "Professional & consulting firms",
+          body: "Maintain secure, private repositories for internal development, automation, and client projects.",
+        },
+        {
+          title: "Growing technology teams",
+          body: "Scale your GitLab infrastructure as your team, repositories, and deployment requirements grow.",
+        },
+      ],
+    },
   },
   {
     slug: "cybersecurity",

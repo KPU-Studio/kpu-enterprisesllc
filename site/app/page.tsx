@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { RailDiagram } from "@/components/RailDiagram";
-import { Photo } from "@/components/Photo";
 import { CtaBand } from "@/components/CtaBand";
 import { EngagementStatus } from "@/components/EngagementStatus";
 import { audiences, engagement, measures, process, services, site } from "@/lib/content";
@@ -26,14 +25,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Intro photo — full-bleed banner bridging the hero into the content */}
-      <Photo
-        src="/home.webp"
-        alt=""
-        className="!rounded-none !border-x-0 !border-t-0 aspect-[2/1] md:aspect-[21/9] [&>img]:object-[center_22%]"
-        eager
-      />
 
       {/* Services */}
       <section className="frame py-20 md:py-28">

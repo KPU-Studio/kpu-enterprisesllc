@@ -58,6 +58,40 @@ export default async function ServicePage({ params }: Props) {
         </aside>
       </section>
 
+      {s.feature && (
+        <section className="border-t border-rule-gray">
+          <div className="frame py-16 md:py-24">
+            <p className="eyebrow mb-3">{s.feature.eyebrow}</p>
+            <h2 className="h-major max-w-[22ch]">{s.feature.headline}</h2>
+            <p className="body-copy mt-5 max-w-[68ch] text-[18px]">{s.feature.intro}</p>
+            <p className="mt-6 max-w-[68ch] border-l-2 border-network-green pl-4 text-[16px]">
+              <span className="font-semibold">Our promise: </span>
+              <span className="body-copy">{s.feature.promise}</span>
+            </p>
+
+            <h3 className="h-section mt-14">Core services</h3>
+            <ul className="mt-8 grid border-t border-l border-rule-gray sm:grid-cols-2 lg:grid-cols-3">
+              {s.feature.offerings.map((o) => (
+                <li key={o.title} className="border-r border-b border-rule-gray p-6 md:p-8">
+                  <h4 className="h-feature">{o.title}</h4>
+                  <p className="body-copy mt-3">{o.body}</p>
+                </li>
+              ))}
+            </ul>
+
+            <h3 className="h-section mt-16 max-w-[26ch]">{s.feature.segmentsTitle}</h3>
+            <ul className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+              {s.feature.segments.map((seg) => (
+                <li key={seg.title} className="border-t border-rule-gray pt-5">
+                  <h4 className="font-sans text-[16px] font-semibold">{seg.title}</h4>
+                  <p className="body-copy mt-2">{seg.body}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
       <section className="border-t border-rule-gray">
         <div className="frame py-16">
           <p className="eyebrow mb-6">Related services</p>
