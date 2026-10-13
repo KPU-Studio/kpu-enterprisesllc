@@ -35,6 +35,20 @@ export type Service = {
     segmentsTitle: string;
     segments: { title: string; body: string }[];
   };
+  // Optional in-depth capability breakdown (icon + description + deliverables + tags).
+  capabilities?: {
+    eyebrow: string;
+    headline: string;
+    lead: string;
+    items: {
+      icon: "architecture" | "code" | "shield" | "advisory" | "strategy" | "app" | "automation" | "analytics" | "deploy";
+      title: string;
+      blurb: string;
+      deliver: string[];
+      tags: string[];
+    }[];
+    closing: { headline: string; body: string };
+  };
 };
 
 export const services: Service[] = [
@@ -61,6 +75,93 @@ export const services: Service[] = [
     audience:
       "Organizations planning a cloud solution, improving an existing environment, or establishing a dependable architecture that can grow without unnecessary complexity.",
     scope: ["Cloud solution deployment", "AWS expertise", "Infrastructure as Code", "Solution architecture"],
+    capabilities: {
+      eyebrow: "Cloud & Infrastructure in depth",
+      headline: "Cloud environments designed, built, and operated with security in mind.",
+      lead: "Whether establishing a new cloud environment, modernizing existing infrastructure, or supporting a regulated workload, we focus on building environments that are maintainable, reproducible, and ready for production.",
+      items: [
+        {
+          icon: "architecture",
+          title: "Cloud Infrastructure Design",
+          blurb:
+            "Cloud architecture built around the workload, operational requirements, and security boundary rather than copied from a generic reference diagram. We design the foundational components of cloud environments—account and subscription structures, virtual networking, identity and access boundaries, compute and storage sizing, connectivity, and security controls. For regulated environments, architecture decisions account for the controls a program must implement and demonstrate during assessment and authorization.",
+          deliver: [
+            "Cloud account and subscription architecture",
+            "Virtual Private Cloud (VPC) and network design",
+            "Subnet segmentation, routing, and connectivity",
+            "Identity and Access Management (IAM) architecture",
+            "Compute, storage, and database infrastructure planning",
+            "Cloud landing zone design",
+            "Logging, monitoring, and security architecture",
+            "High availability and disaster recovery planning",
+            "Architecture diagrams and technical design documentation",
+          ],
+          tags: ["VPC & Networking", "IAM", "Compute", "Storage", "Landing Zones", "AWS"],
+        },
+        {
+          icon: "code",
+          title: "Provisioning as Code",
+          blurb:
+            "Cloud infrastructure provisioned through version-controlled automation rather than manually configured resources. We use Terraform, Ansible, Python, and CI/CD workflows to deploy and manage compute, networking, storage, identity, and container infrastructure, so changes can be peer-reviewed, tested, tracked, and consistently applied across development, staging, and production. The result is a repeatable baseline that reduces configuration drift, simplifies maintenance, and supports operational and audit requirements.",
+          deliver: [
+            "Infrastructure as Code (IaC) development",
+            "Reusable Terraform modules",
+            "Ansible playbooks and configuration automation",
+            "Automated infrastructure provisioning",
+            "CI/CD pipelines for infrastructure deployment",
+            "Kubernetes infrastructure provisioning",
+            "Environment standardization",
+            "Configuration and drift management",
+            "Version-controlled infrastructure repositories",
+            "Infrastructure documentation and handover",
+          ],
+          tags: ["Terraform", "Ansible", "Kubernetes", "CI/CD", "EC2 & VPC", "Python"],
+        },
+        {
+          icon: "shield",
+          title: "Implementation & Hardening",
+          blurb:
+            "Secure implementation of cloud infrastructure against an established architecture and security baseline. We build and configure cloud environments with network segmentation, encryption, least-privilege access, logging, and system hardening incorporated from the beginning rather than introduced after deployment. Security configurations are applied through repeatable processes and automation wherever practical, so the environment's baseline can be maintained, reapplied, and validated over time.",
+          deliver: [
+            "Cloud environment deployment and configuration",
+            "Network segmentation and security group implementation",
+            "IAM roles, policies, and least-privilege access",
+            "Encryption at rest and in transit",
+            "Operating system and instance hardening",
+            "Secure storage configuration",
+            "Centralized logging and monitoring",
+            "Configuration baseline implementation",
+            "Security control validation",
+            "Remediation of infrastructure misconfigurations",
+            "Technical documentation and operational handover",
+          ],
+          tags: ["Security Groups", "Encryption", "Least Privilege", "Hardening", "Logging", "Security Baselines"],
+        },
+        {
+          icon: "advisory",
+          title: "Cloud Architecture Advisory",
+          blurb:
+            "Independent technical guidance for organizations planning, evaluating, or modernizing their cloud infrastructure. We help teams assess architecture decisions, compare cloud platforms, evaluate deployment models, and establish practical target architectures based on business, technical, operational, and security requirements. Our recommendations are grounded in hands-on architecture experience across AWS and government cloud environments, with primary production depth in AWS—actionable technical direction rather than vendor-driven recommendations.",
+          deliver: [
+            "Cloud platform evaluation and selection",
+            "Existing infrastructure and architecture assessments",
+            "AWS and cross-cloud architecture reviews",
+            "Cloud migration strategy and planning",
+            "Target-state architecture development",
+            "Security and compliance architecture guidance",
+            "Cost and infrastructure optimization recommendations",
+            "Scalability and resiliency assessments",
+            "Technical design reviews",
+            "Architecture documentation and implementation roadmaps",
+          ],
+          tags: ["AWS", "Cloud Strategy", "Architecture Reviews", "Migration Planning", "Security Architecture"],
+        },
+      ],
+      closing: {
+        headline: "Build cloud infrastructure that is ready for production.",
+        body: "From architecture and automation to secure implementation and technical guidance, Qorvyn Systems helps organizations establish cloud environments designed for their actual workloads and operational requirements.",
+      },
+    },
   },
   {
     slug: "devsecops",
@@ -166,6 +267,113 @@ export const services: Service[] = [
     audience:
       "Organizations with a practical AI use case that need to assess readiness, develop custom agents, improve observability, or move machine learning work toward reliable production use.",
     scope: ["AI strategy & readiness", "Agentic AI", "AI agent development", "Custom AI agents", "Agent observability", "MLOps & deployment"],
+    capabilities: {
+      eyebrow: "AI & Machine Learning in depth",
+      headline: "Practical AI solutions built around your business.",
+      lead: "Whether you are exploring AI for the first time or introducing new capabilities into existing systems, we help you move from an idea to a practical, secure, and maintainable solution—design, build, and integration that addresses real business challenges rather than adopting AI for its own sake.",
+      items: [
+        {
+          icon: "strategy",
+          title: "AI Strategy & Readiness",
+          blurb:
+            "Discover where AI can make a meaningful difference in your organization. We help businesses identify opportunities for AI adoption, evaluate existing processes and technology, and develop a clear path toward implementation. The approach focuses on practical use cases, technical feasibility, and measurable business value rather than adopting AI simply for the sake of it.",
+          deliver: [
+            "AI opportunity and readiness assessments",
+            "Business process and workflow evaluations",
+            "AI use case identification and prioritization",
+            "Technology and platform recommendations",
+            "AI implementation roadmaps",
+            "Proof-of-concept development and planning",
+            "Cost and feasibility assessments",
+          ],
+          tags: ["AI Strategy", "Readiness Assessment", "Use Cases", "Roadmaps"],
+        },
+        {
+          icon: "app",
+          title: "Custom AI Applications",
+          blurb:
+            "Intelligent applications designed around the way your business operates. We develop AI-powered tools that help teams access information, process documents, answer questions, and work more efficiently. Whether you need an internal knowledge assistant, a customer-facing chatbot, or AI capabilities integrated into existing software, we build solutions tailored to your workflows and requirements.",
+          deliver: [
+            "Custom AI assistants and chatbots",
+            "Internal knowledge and document assistants",
+            "AI-powered document processing",
+            "Intelligent search and information retrieval",
+            "AI integration with existing applications",
+            "Custom AI-powered business tools",
+            "Retrieval-Augmented Generation (RAG) solutions",
+          ],
+          tags: ["AI Assistants", "Chatbots", "RAG", "LLMs", "Application Integration"],
+        },
+        {
+          icon: "automation",
+          title: "AI Workflow Automation",
+          blurb:
+            "Reduce repetitive work and improve efficiency through intelligent automation. We combine AI with workflow automation to streamline everyday operations, process information, and connect existing systems. From document handling and data extraction to automated reporting and task coordination, we develop solutions that reduce manual effort while maintaining appropriate oversight and control.",
+          deliver: [
+            "Business process and workflow automation",
+            "Automated document classification and extraction",
+            "Email and information processing",
+            "AI-assisted reporting and data organization",
+            "Integration with existing business systems",
+            "Automated data processing",
+            "Human-in-the-loop approval workflows",
+          ],
+          tags: ["AI Automation", "Workflow Integration", "Document Processing", "Python", "APIs"],
+        },
+        {
+          icon: "analytics",
+          title: "Machine Learning & Predictive Analytics",
+          blurb:
+            "Turn your business data into insights that support better decisions. We develop machine learning solutions that help organizations identify patterns, understand trends, forecast outcomes, and uncover useful information within their existing data. From preparing and analyzing datasets to developing, evaluating, and integrating predictive models, we focus on solutions that are practical, understandable, and aligned with your business objectives.",
+          deliver: [
+            "Predictive modeling and forecasting",
+            "Data preparation and analysis",
+            "Pattern recognition and anomaly detection",
+            "Classification and recommendation models",
+            "Custom machine learning development",
+            "Model evaluation and performance testing",
+            "Integration of predictive insights into business applications",
+          ],
+          tags: ["Machine Learning", "Predictive Analytics", "Python", "Data Analysis", "Forecasting"],
+        },
+        {
+          icon: "deploy",
+          title: "AI Integration & Deployment",
+          blurb:
+            "Bring AI capabilities into your existing applications, infrastructure, and business systems. We help organizations integrate AI models and services, deploy custom applications, and establish the technical foundation needed to operate AI solutions reliably. Whether leveraging established AI platforms or deploying custom models, implementations are designed around performance, security, scalability, and long-term maintainability.",
+          deliver: [
+            "AI API and platform integrations",
+            "Large Language Model (LLM) integration",
+            "Cloud-based AI deployment",
+            "Model serving and application deployment",
+            "Data pipeline and system integration",
+            "Containerized AI applications",
+            "Monitoring, maintenance, and operational support",
+          ],
+          tags: ["LLM Integration", "APIs", "Cloud AI", "Docker", "Python", "MLOps"],
+        },
+        {
+          icon: "shield",
+          title: "Responsible AI & Security",
+          blurb:
+            "Build and adopt AI with security, privacy, and responsible use in mind. We help organizations implement safeguards that protect sensitive information, manage access to AI systems, and reduce the risks associated with AI adoption. Security and responsible AI practices are incorporated throughout design, development, and deployment, so businesses can introduce intelligent capabilities while maintaining appropriate visibility and control.",
+          deliver: [
+            "AI security and risk assessments",
+            "Data privacy and access controls",
+            "Secure AI application architecture",
+            "AI usage policies and application guardrails",
+            "Model output evaluation and testing",
+            "Human oversight and approval controls",
+            "AI governance and risk management guidance",
+          ],
+          tags: ["AI Security", "Data Privacy", "Access Controls", "Guardrails", "Responsible AI"],
+        },
+      ],
+      closing: {
+        headline: "Make AI work for your business.",
+        body: "AI should solve problems, simplify work, and create meaningful value—not introduce unnecessary complexity. From identifying the right opportunities to designing, building, and deploying intelligent solutions, Qorvyn Systems helps businesses adopt AI with a clear focus on practical outcomes, security, and long-term usability.",
+      },
+    },
   },
 ];
 

@@ -134,10 +134,8 @@ export function RailDiagram() {
             })
         )}
 
-        {/* center node */}
-        <rect x={CX - NODE / 2} y={CY - NODE / 2} width={NODE} height={NODE} rx={2} fill="#151515" />
-        <circle cx={CX - 3} cy={CY - 3} r={15} fill="none" stroke="#ffffff" strokeWidth={5} />
-        <path d={`M ${CX + 7} ${CY + 7} L ${CX + 19} ${CY + 19}`} stroke="#29735c" strokeWidth={6} />
+        {/* center node — Qorvyn brand badge */}
+        <image href="/logo.png" x={CX - NODE / 2} y={CY - NODE / 2} width={NODE} height={NODE} />
         <text x={CX} y={CY + NODE / 2 + 26} textAnchor="middle" fontFamily="IBM Plex Mono, ui-monospace, monospace" fontSize={14} fontWeight={500} fill="#7b5953">
           Qorvyn
         </text>

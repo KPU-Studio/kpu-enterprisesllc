@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageHeader } from "@/components/PageHeader";
 import { CtaBand } from "@/components/CtaBand";
+import { ServiceIcon } from "@/components/ServiceIcon";
 import { getService, services } from "@/lib/content";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -57,6 +58,56 @@ export default async function ServicePage({ params }: Props) {
           </ul>
         </aside>
       </section>
+
+      {s.capabilities && (
+        <section className="border-t border-rule-gray">
+          <div className="frame py-16 md:py-24">
+            <p className="eyebrow mb-3">{s.capabilities.eyebrow}</p>
+            <h2 className="h-major max-w-[26ch]">{s.capabilities.headline}</h2>
+            <p className="body-copy mt-5 max-w-[70ch] text-[18px]">{s.capabilities.lead}</p>
+
+            <div className="mt-12 space-y-6 md:space-y-8">
+              {s.capabilities.items.map((it, i) => (
+                <article key={it.title} className="rounded-card border border-rule-gray bg-paper p-6 md:p-10">
+                  <div className="flex items-start gap-4 md:gap-5">
+                    <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-card border border-rule-gray bg-ice-panel text-network-green">
+                      <ServiceIcon name={it.icon} className="h-6 w-6" />
+                    </span>
+                    <div>
+                      <p className="font-mono text-[14px] font-medium text-steel">{String(i + 1).padStart(2, "0")}</p>
+                      <h3 className="h-section mt-1">{it.title}</h3>
+                    </div>
+                  </div>
+                  <p className="body-copy mt-6 max-w-[80ch]">{it.blurb}</p>
+
+                  <p className="eyebrow mt-8 mb-4">What we deliver</p>
+                  <ul className="grid gap-x-10 gap-y-3 border-t border-ink pt-5 sm:grid-cols-2">
+                    {it.deliver.map((d) => (
+                      <li key={d} className="flex items-start gap-3 text-[16px] font-medium">
+                        <span className="mt-2 h-2 w-2 shrink-0 bg-network-green" aria-hidden="true" />
+                        {d}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <ul className="mt-7 flex flex-wrap gap-2">
+                    {it.tags.map((t) => (
+                      <li key={t} className="rounded-sm border border-rule-gray bg-paper px-2.5 py-1 font-mono text-[13px] text-graphite">
+                        {t}
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </div>
+
+            <div className="card-ice mt-12 p-6 md:p-10">
+              <h3 className="h-section max-w-[24ch]">{s.capabilities.closing.headline}</h3>
+              <p className="body-copy mt-4 max-w-[72ch] text-[18px]">{s.capabilities.closing.body}</p>
+            </div>
+          </div>
+        </section>
+      )}
 
       {s.feature && (
         <section className="border-t border-rule-gray">
